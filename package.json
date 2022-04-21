@@ -1,0 +1,26 @@
+{
+  "name": "Skin-Lesion-Analyzer",
+  "version": "1.0.0",
+  "description": "Live Web App: http://skin.test.woza.work/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+  "dev":"nodemon index.js"  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vbookshelf/Skin-Lesion-Analyzer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vbookshelf/Skin-Lesion-Analyzer/issues"
+  },
+  "homepage": "https://github.com/vbookshelf/Skin-Lesion-Analyzer#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

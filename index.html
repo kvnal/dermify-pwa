@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      type="text/javascript"
+      src="/___vscode_livepreview_injected_script"
+    ></script>
+    <meta charset="utf-8" />
+    <title>Dermify</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Use the power of Machine Learning to diagnose Skin Lesions."
+    />
+
+    <!--CSS Stylesheets-->
+    <link rel="stylesheet" href="css/w3.css" />
+
+    <link rel="stylesheet" href="css/skin.css" />
+	<link rel="manifest" href="./manifest.json">
+    <!--Link to Font Awesome icons-->
+    
+
+
+    <!--Link to fonts from google fonts-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Oswald:300"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="shortcut icon" type="image/png" href="robotfavicon.png" />
+
+    <style>
+    
+    </style>
+  </head>
+  <script>
+	if ("serviceWorker" in navigator) {
+		window.addEventListener("load", () => {
+			console.log("service worker");
+			navigator.serviceWorker && navigator.serviceWorker.register("./sw.js");
+		});
+	}
+	</script>
+  <body class="bground-color  overflow-hidden">
+    <!-- w3-content defines a container for fixed size centered content,
+and is wrapped around the whole page content. -->
+
+<div class="fixed  bg-black text-white w-full z-50 shadow-md py-4 flex justify-center">
+	<h1 class=" text-2xl flex items-center">
+		<span class="text-xl mr-2">👨‍⚕️</span>
+		Dermify</h1>
+</div>
+	
+    <div class="mt-10 mx-4 flex h-screen justify-content items-center" >
+      <!-- 1. HOME PAGE -->
+      <div class="tabbed w3-animate-opacity w3-white" id="home">
+        <!-- Top Bar -->
+
+        <!-- Front page image -->
+        <!-- This image will be replaced once the js code runs. -->
+        <div class="w3-center ">
+          <img
+            id="selected-image"
+            class="w-full rounded-sm"
+            src="assets/samplepic.jpg"
+            height="250"
+            alt="Image for analysis"
+          />
+        </div>
+
+        <!-- Button -->
+        <div id="btnn" class="w3-center">
+          <button
+            class="text-white bg-black py-2 px-6 my-4 "
+            onclick="setTimeout(simulateClick.bind(null, 'image-selector'), 200)"
+          >
+            <b>📷 Upload</b>
+          </button>
+          <!--<p class="w3-text-teal">jpeg or png</p>-->
+        </div>
+
+        <div class="w3-center">
+          <div class="progress-bar text-gray-900 space-letters">
+			  <p>Loading...</p>
+			</div>
+        </div>
+
+        <!-- Progress Bar 
+Just here for graphics.
+The functionality was not implemented because it slows down the model download 
+and causes it to fail.-->
+
+<div class="bg-gray-100 p-4 border-black mt-4">
+        <div class="side-margin w3-opacity mt-6">
+          <div
+            id="myBar"
+			class="bg-black"
+            style="height: 5px; width: 100%"
+          ></div>
+        </div>
+
+        <!-- Results Box -->
+        <div
+          class="mx-4"
+        >
+          <h1 class="w-full text-2xl font-semibold text-center my-2">Report</h1>
+
+          <!-- Remember that an ordered or unordered list has tabs by default.
+	CSS is not styling the prediction outputs. The tabs you see are the default
+	tabs associated with lists.-->
+          <ol class="w3-left-align text-color font-mono text-md " id="prediction-list"></ol>
+        </div>
+	</div>
+        <!-- Bottom Bar -->
+      </div>
+      <!--END OF HOME PAGE-->
+
+      <!-- We simulate clicks on these two. -->
+      <div class="hide">
+        <button id="predict-button">Predict</button>
+      </div>
+
+      <div class="hide">
+        <input id="image-selector" type="file" multiple />
+      </div>
+      <!--===================================-->
+
+
+      <!-- Load jQuery -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="css/tailwind"></script>
+
+      <!-- Load TensorFlow.js
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.6.0/dist/tf.min.js"> 
+	</script>-->
+      <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.13.3/dist/tf.min.js"></script>
+
+      <!-- Load the js files -->
+      <script src="jscript/target_classes.js"></script>
+      <script src="jscript/app_startup_code.js"></script>
+      <script src="jscript/app_batch_prediction_code.js"></script>
+    </div>
+    <!-- w3-content -->
+  </body>
+</html>
